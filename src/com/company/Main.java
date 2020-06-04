@@ -4,11 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        System.out.println("Here comes a result of 7 - 9");
-        int theSub = 0;
-        System.out.println(theSub);
-        theSub = calcTheSubOfTwo(7, 9);
-        System.out.println(theSub);
+        
 
         System.out.println("Here comes a result of 7 * 9");
         int theMul = 0;
@@ -29,11 +25,13 @@ public class Main {
 		System.out.println(theDiv);
         }
 	    
-        public static int calcSevenToEleven(System.out.println("Here comes a result of 7 - 9");
+         public static int SeventoEleven(int x, int y) {
+        System.out.println("Here comes a result of 7 - 9");
         int theSub = 0;
         System.out.println(theSub);
         theSub = calcTheSubOfTwo(7, 9);
-        System.out.println(theSub););
+        System.out.println(theSub);
+    }
 
 
         System.out.println("Here comes the sum of three results");
