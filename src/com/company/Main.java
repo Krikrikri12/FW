@@ -29,7 +29,12 @@ public class Main {
 		System.out.println(theDiv);
         }
 	    
-        
+        public static int calcSevenToEleven(System.out.println("Here comes a result of 7 - 9");
+        int theSub = 0;
+        System.out.println(theSub);
+        theSub = calcTheSubOfTwo(7, 9);
+        System.out.println(theSub););
+
 
         System.out.println("Here comes the sum of three results");
         float theSum = 0;
