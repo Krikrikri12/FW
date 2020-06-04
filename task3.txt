@@ -1,0 +1,4 @@
+Create array with integers.
+
+Use bubble sort algorithm to sort digits from lower to higher.
+
