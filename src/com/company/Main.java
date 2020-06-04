@@ -19,13 +19,17 @@ public class Main {
         System.out.println("Here comes a result of 7 / 9");
         float theDiv = 0;
         System.out.println(theDiv);
-        theDiv = calcTheDivOfTwo(7, 9);
-
-        int y = 9;
+        
+	int y = 9;
+	    
         if (y == 0) {System.out.println("Not allowed");}
-        else { System.out.println(theDiv);
-
+        else {
+		
+	 	theDiv = calcTheDivOfTwo(7, y);
+		System.out.println(theDiv);
         }
+	    
+        
 
         System.out.println("Here comes the sum of three results");
         float theSum = 0;
