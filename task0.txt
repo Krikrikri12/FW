@@ -1,0 +1,5 @@
+Create new function - calcTheSumOfAny.
+Function can take array of int and return the sum of all the elementh in array. 
+
+Create function that returns averge, min, max from the array.
+
