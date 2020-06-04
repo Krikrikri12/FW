@@ -1,0 +1,25 @@
+
+Create calculator.
+
+Read input data sample:
+
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+System.out.print("Hello. Please write your name: ");
+String name = br.readLine();
+System.out.println("Your name is: "+name);
+
+String to int convert sample:
+
+int foo = Integer.parseInt(myString);
+
+
+1. Ask to input first parameter.
+2. Read first parameter - x. Validate that input parameter is digit. Ask to input digit again if parameter is incorrect.
+3. Ask to input operator.
+4. Read operator + - / *. Validate that input parameter is operator. Ask to input operator again if operator is incorrect.
+5. Ask to input second parameter.
+6. Read second parameter - y. Validate that input parameter is operator. Ask to input digit again if parameter is incorrect.
+7. Make calculation - parameter1 operator parameter2.
+8. Output result to conole.
+
+
