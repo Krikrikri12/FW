@@ -1,0 +1,33 @@
+Task:
+Write a Java program to convert minutes into a number of years and days.
+
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+     float year = 525600;
+     float day = 1440;
+     float min = 1051200;
+     float x = min;
+
+     min = calcOfYear(x, 525600);
+        System.out.println( x + " minutes are "+ min + " years");
+
+     min = calcOfDay(x, 1440);
+        System.out.println( x + " minutes are "+ min + " days");
+
+
+    }
+    public static float calcOfYear(float x, float y){
+        float result = 0;
+        result = x / y;
+        return result;
+    }
+    public static float calcOfDay(float x, float z){
+        float result = 0;
+        result = x / z;
+        return result;
+    }
+}
