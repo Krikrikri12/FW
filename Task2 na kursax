@@ -1,0 +1,27 @@
+Task:
+
+Write a Java program to convert temperature from Fahrenheit to Celsius degree.
+package com.company;
+
+
+public class farengheit{
+    public static void main(String[] args) {
+
+        float Far = 150;
+        float y = Far;
+
+
+        if (y == 32){
+            System.out.println("0 C");}else{
+            float C = calcOfC(Far);
+            System.out.println(C);
+        }
+    }
+
+
+    public static float calcOfC(float y){
+        float result;
+        result = (5 * (y - 32))/9;
+        return result;}
+
+}
