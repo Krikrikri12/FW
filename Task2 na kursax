@@ -25,3 +25,41 @@ public class farengheit{
         return result;}
 
 }
+
+
+Upgrade. Voprosi, kak sdelatj, stobi cuvak mog vvesti tolko cifri, 42 strocka, kak eto sdelalosj
+
+package com.company;
+
+
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+public class farengheit{
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Please print F:");
+        double numberFromUser = Double.parseDouble(input.nextLine());
+        System.out.println("thank you for providing:" + numberFromUser);
+
+
+        double y = numberFromUser;
+
+
+        if (y == 32){
+            System.out.println("0 C");}else{
+            double C = calcOfC(numberFromUser);
+            System.out.println(C);
+        }
+    }
+
+
+    public static double calcOfC(double y){
+        Double result;
+        result = (5 * (y - 32))/9;
+        DecimalFormat df = new DecimalFormat("#.##");
+        result = Double.valueOf(df.format(result));
+        return result;
+    }
+
+}
