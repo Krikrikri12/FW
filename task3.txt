@@ -2,3 +2,24 @@ Create array with integers.
 
 Use bubble sort algorithm to sort digits from lower to higher.
 
+import java.util.Arrays;
+
+public class Bubblesorting {
+    public static void main(String[] args) {
+        //Create array with integers.
+        //Use bubble sort algorithm to sort digits from lower to higher.
+        int [] bubble = new int [] {2, 8, 87, 4, 6};
+
+        for(int i= 0; i<bubble.length; i++ ){
+            for (int j= 0; j<bubble.length; j++ ){
+            if(bubble[i]<bubble[j]) {
+                int a = bubble[i];
+                bubble[i] = bubble[j];
+                bubble[j] = a;
+            }
+
+            }
+        }
+        System.out.println(Arrays.toString(bubble));
+    }
+}
