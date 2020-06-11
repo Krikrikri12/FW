@@ -23,3 +23,74 @@ int foo = Integer.parseInt(myString);
 8. Output result to conole.
 
 
+import java.util.Scanner;
+
+
+public class Calcilator {
+   public static void main(String[] args) throws Exception {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter any number:");
+        double numberFromUser;
+        while (true) {
+            try {
+                numberFromUser = Double.parseDouble(input.next());
+                System.out.println("thank you for providing:" + numberFromUser);
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("your number isnt correct");{
+                    System.out.println("Enter any number:");
+                }
+            }
+        }
+
+       System.out.println("Enter the sign");
+        String sign = input.next();
+
+
+       while (true) {
+           if (sign.equals("*")) {
+               System.out.println("thank you for providing:" + sign);break;
+           } else if (sign.equals("/")) {
+               System.out.println("thank you for providing:" + sign);break;
+           } else if (sign.equals("+")) {
+               System.out.println("thank you for providing:" + sign);break;
+           } else if (sign.equals("-")) {
+               System.out.println("thank you for providing:" + sign);break;
+
+           }
+            else {
+               System.out.println("Wrong");{
+                   System.out.println("Enter the sign");
+                    sign = input.next();
+               }
+           }
+       }
+
+
+      System.out.println("Enter the second number");
+       double number2FromUser;
+       while (true) {
+           try {
+               number2FromUser = Double.parseDouble(input.next());
+               System.out.println("thank you for providing:" + number2FromUser);
+               break;
+           } catch (NumberFormatException e) {
+               System.out.println("your number isnt correct");{
+                   System.out.println("Enter any number:");
+               }
+           }
+       }
+
+       if (sign.equals("*")) {
+           System.out.println("Your result is :" + (numberFromUser*number2FromUser));
+       } else if (sign.equals("/")) {
+           System.out.println("Your result is :" + (numberFromUser/number2FromUser));
+       } else if (sign.equals("+")) {
+           System.out.println("Your result is :" + (numberFromUser+number2FromUser));
+       } else if (sign.equals("-")) {
+           System.out.println("Your result is :" + (numberFromUser - number2FromUser));
+       }
+    }
+
+
+}
