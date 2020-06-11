@@ -3,3 +3,101 @@ Function can take array of int and return the sum of all the elementh in array.
 
 Create function that returns averge, min, max from the array.
 
+package com.company;
+
+
+
+public class ccc {
+    public static void main(String[] args) {
+        int x = 0;
+        int y = 0;
+        int sum = 0;
+        int average = 0;
+
+
+        int[][] twoDimArray = new int[9][9];
+        int[][] twoDimArrayOnePlus = new int[9][9];
+        int tempValue = 1;
+        twoDimArray[x][y] = twoDimArray[x][y] + 1;
+        twoDimArrayOnePlus[x][y] = twoDimArrayOnePlus[x][y]+1;
+        int max = twoDimArray[x][y];
+        int min = twoDimArray[x][y];
+        int max1 = twoDimArrayOnePlus[x][y];
+        int min1 = twoDimArrayOnePlus[x][y];
+
+
+            for (int i = 0; i < 9; i++) {
+                for (int j = 0; j < 9; j++) {
+                    twoDimArray[i][j] = tempValue++;
+                    sum = sum + twoDimArray[i][j];
+                    average = sum / twoDimArray[i][j];
+
+                }
+
+            }
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (max < twoDimArray[i][j]) {
+                    max = twoDimArray[i][j];
+                }
+            }
+        }
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (min > twoDimArray[i][j]) {
+                    min= twoDimArray[i][j];
+                }
+            }
+        }
+            for (int i = 0; i < 9; i++) {
+                for (int j = 0; j < 9; j++) {
+                    twoDimArrayOnePlus[i][j] = twoDimArray[9 - i - 1][9 - j - 1];
+                }
+
+            }
+            for (int i = 0; i< 9; i++){
+                for(int j = 0; j < 9; j++){
+                    if(max1 <twoDimArrayOnePlus[i][j]){
+                       max1 = twoDimArrayOnePlus[i][j];
+                    }
+                }
+            }
+            for(int i =0; i<9; i++){
+               for (int j =0; j<9; j++) {
+                   if (min1>twoDimArrayOnePlus[x][y]){
+                       min1=twoDimArrayOnePlus[x][y];
+                   }
+                }
+            }
+
+            for (int i = 0; i < 9; i++) {
+                for (int j = 0; j < 9; j++) {
+                    System.out.print("" + twoDimArray[i][j] + " ");
+
+                }
+                System.out.println();
+            }
+            for (int i = 0; i < 9; i++) {
+                for (int j = 0; j < 9; j++) {
+
+                    System.out.print("" + twoDimArrayOnePlus[i][j] + " ");
+                }
+                System.out.println();
+
+            }
+
+
+            System.out.println(sum);
+            System.out.println(average);
+        System.out.println(max);
+        System.out.println(min);
+        System.out.println(max1);
+        System.out.println(min1);
+            //Create new function - calcTheSumOfAny.
+            //Function can take array of int and return the sum of all the elementh in array.
+
+            //Create function that returns averge, min, max from the array.
+        }
+
+    }
+
