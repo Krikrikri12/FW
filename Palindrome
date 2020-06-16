@@ -1,0 +1,40 @@
+package com.Personal;
+
+import java.util.Scanner;
+
+public class Personal {
+    //Create the Java program which does check if user inputs String that is a palindrome or not.
+    //In case it is not, keep asking to enter palindrome while it is provided. When it is, say's "Thank you, that is a palindrome!".
+    // Example:
+    //input: HellO!
+    //Output: next time please provide palindrome!
+    //Input: 11122111
+    //Output: Thank you, that is a palindrome!
+    public static void main(String[] args) {
+
+        Scanner palindrome = new Scanner(System.in);
+        System.out.println("Please enter palindrome: ");
+        String wordFromUSer = palindrome.nextLine();
+        int length = wordFromUSer.length();
+        String reverse = "";
+
+        while (true) {for (int i = length - 1; i >= 0; i--){
+            reverse = reverse + wordFromUSer.charAt(i);}
+            {
+
+                if (wordFromUSer.equals(reverse)) {
+                    System.out.println("Thank you, that is a palindrome!");
+                    break;
+                } else {
+                    System.out.println("next time please provide palindrome!");
+                    {
+                        System.out.println("Please enter palindrome: ");
+
+                        wordFromUSer = palindrome.nextLine();
+
+                    }
+                }
+            }
+            }
+            }
+    }
