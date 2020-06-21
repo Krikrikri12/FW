@@ -99,5 +99,103 @@ public class ccc {
             //Create function that returns averge, min, max from the array.
         }
 
+Переделанное:
+    }
+public class cccupgrade {
+    public static void main(String[] args) {
+        int first = myarray();
+        int calcOfMax = maxx();
+        int calcOfMin = minn();
+        int calcOfSum = Sum();
+        int calcOfAverage = Average();
+
     }
 
+    public static int myarray() {
+        int x = 0;
+        int y = 0;
+        int[][] twoDimArray = new int[9][9];
+        int tempValue = 1;
+        twoDimArray[x][y] = twoDimArray[x][y] + 1;
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                twoDimArray[i][j] = tempValue++;
+            }
+        }
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                System.out.print("" + twoDimArray[i][j] + " ");
+            }
+            System.out.println();
+        }
+        return twoDimArray[x][y];
+    }
+
+    public static int maxx() {
+        int x = 0;
+        int y = 0;
+        int tempValue = 1;
+        int[][] twoDimArray = new int[9][9];
+        int max = twoDimArray[x][y];
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                twoDimArray[i][j] = tempValue++;
+                if (max < twoDimArray[i][j]) {
+                    max = twoDimArray[i][j];
+                }
+            }
+        }
+        System.out.println(max);
+        return max;
+    }
+
+    public static int minn() {
+        int x = 0;
+        int y = 0;
+        int tempValue = 1;
+        int[][] twoDimArray = new int[9][9];
+        twoDimArray[x][y] = twoDimArray[x][y] + 1;
+        int min = twoDimArray[x][y];
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                twoDimArray[i][j] = tempValue++;
+                if (min > twoDimArray[i][j]) {
+                    min = twoDimArray[i][j];
+                }
+            }
+        }
+        System.out.println(min);
+        return min;
+    }
+
+    public static int Sum() {
+        int sum = 0;
+        int[][] twoDimArray = new int[9][9];
+        int tempValue = 1;
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                twoDimArray[i][j] = tempValue++;
+                sum = sum + twoDimArray[i][j];
+            }
+        }
+        System.out.println(sum);
+        return sum;
+    }
+
+    public static int Average() {
+        int average = 0;
+        int sum = 0;
+        int[][] twoDimArray = new int[9][9];
+        int tempValue = 1;
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                twoDimArray[i][j] = tempValue++;
+                sum = sum + twoDimArray[i][j];
+                average = sum / (tempValue - 1);
+
+            }
+        }
+        System.out.println(average);
+        return average;
+    }
+}
