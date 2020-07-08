@@ -2,163 +2,81 @@ package com.company;
 
 import java.util.Scanner;
 
-public class Main {
-
+public class QuizUpgrade {
     public static void main(String[] args) {
-        int a;
-        int b;
-        int c;
-        int d;
-        int e;
-        int f;
-        int g;
-        int h;
-        int i;
-        int j;
-
         Scanner in = new Scanner(System.in);
-        System.out.println("Question 1. How many hearts does an octopus have? " +
-                "\n a) 3 " +
-                "\n b) 5 " +
-                "\n c) 1 " +
-                "\n Your answer a, b or c: ");
-        String Answer1 = in.nextLine();
-        char answer1 = Answer1.charAt(0);
-        if (answer1 == 97) {
-            a = 10;
-        } else {
-            a = 0;
-            System.out.println("The correct answer is: 3.");
-        }
-        System.out.println("\n" + "Question 2. What is the square root of 256? " +
-                "\n a) 32 " +
-                "\n b) 8 " +
-                "\n c) 16 " +
-                "\n Your answer a, b or c: ");
-        String Answer2 = in.nextLine();
-        char answer2 = Answer2.charAt(0);
-        if (answer2 == 99) {
-            b = 10;
-        } else {
-            b = 0;
-            System.out.println("The correct answer is: 16.");
-        }
-        System.out.println("\n" +"Question 3. What is the national animal of Scotland? " +
-                "\n a) A Unicorn " +
-                "\n b) A Deer " +
-                "\n c) A Squirrel " +
-                "\n Your answer a, b or c: ");
-        String Answer3 = in.nextLine();
-        char answer3 = Answer3.charAt(0);
-        if (answer3 == 97) {
-            c = 10;
-        } else {
-            c = 0;
-            System.out.println("The correct answer is: A Unicorn.");
-        }
-        System.out.println("\n" +"Question 4. The highest peak in Europe is in which country? " +
-                "\n a) France (Mont Blanc) " +
-                "\n b) Russia (Mount Elbrus) " +
-                "\n c) Spain (Mulhacén) " +
-                "\n Your answer a, b or c: ");
-        String Answer4 = in.nextLine();
-        char answer4 = Answer4.charAt(0);
-        if (answer4 == 98) {
-            d = 10;
-        } else {
-            d = 0;
-            System.out.println("The correct answer is: Russia (Mount Elbrus).");
-        }
 
-        System.out.println("\n" +"Question 5. Which European city hosted the 1936 Summer Olympics? " +
-                "\n a) Athens " +
-                "\n b) Berlin " +
-                "\n c) Paris " +
-                "\n Your answer a, b or c: ");
-        String Answer5 = in.nextLine();
-        char answer5 = Answer5.charAt(0);
-        if (answer5 == 98) {
-            e = 10;
-        } else {
-            e = 0;
-            System.out.println("The correct answer is: Berlin.");
-        }
-        System.out.println("\n" +"Question 6. Which colour pill does Neo swallow in The Matrix? " +
-                "\n a) Red " +
-                "\n b) Blue " +
-                "\n c) White " +
-                "\n Your answer a, b or c: ");
-        String Answer6 = in.nextLine();
-        char answer6 = Answer6.charAt(0);
-        if (answer6 == 97) {
-            f = 10;
-        } else {
-            f = 0;
-            System.out.println("The correct answer is: Red.");
-        }
-        System.out.println("\n" +"Question 7. What language is spoken in Brazil? " +
-                "\n a) Brazilian " +
-                "\n b) Portuguese " +
-                "\n c) Spanish " +
-                "\n Your answer a, b or c: ");
-        String Answer7 = in.nextLine();
-        char answer7 = Answer7.charAt(0);
-        if (answer7 == 98) {
-            g = 10;
-        } else {
-            g = 0;
-            System.out.println("The correct answer is: Portuguese.");
-        }
-        System.out.println("\n" +"Question 8. What is the largest landlocked country in the world by size? " +
-                "\n a) Russia " +
-                "\n b) China " +
-                "\n c) Kazakhstan " +
-                "\n Your answer a, b or c: ");
-        String Answer8 = in.nextLine();
-        char answer8 = Answer8.charAt(0);
-        if (answer8 == 99) {
-            h = 10;
-        } else {
-            h = 0;
-            System.out.println("The correct answer is: Kazakhstan.");
-        }
-        System.out.println("\n" +"Question 9. How many players are in a football team?" +
-                "\n a) 12 " +
-                "\n b) 22 " +
-                "\n c) 11 " +
-                "\n Your answer a, b or c: ");
-        String Answer9 = in.nextLine();
-        char answer9 = Answer9.charAt(0);
-        if (answer9 == 99) {
-            i = 10;
-        } else {
-            i = 0;
-            System.out.println("The correct answer is: 11. ");
-        }
-        System.out.println("\n" +"Question 10. Which planet is nearest the sun? " +
-                "\n a) Mercury " +
-                "\n b) Earth " +
-                "\n c) Mars " +
-                "\n Your answer a, b or c: ");
-        String Answer10 = in.nextLine();
-        char answer10 = Answer10.charAt(0);
-        if (answer10 == 97) {
-            j = 10;
-        } else {
-            j = 0;
-            System.out.println("The correct answer is: Mercury.");
-        }
+        String[] questions = {"Question 1. How many hearts does an octopus have? ",
+                "Question 2. What is the square root of 256? ",
+                "Question 3. What is the national animal of Scotland? ",
+                "Question 4. The highest peak in Europe is in which country? ",
+                "Question 5. Which European city hosted the 1936 Summer Olympics? ",
+                "Question 6. Which colour pill does Neo swallow in The Matrix? ",
+                "Question 7. What language is spoken in Brazil? ",
+                "Question 8. What is the largest landlocked country in the world by size? ",
+                "Question 9. How many players are in a football team?",
+                "Question 10. Which planet is nearest the sun? "};
+        String[] answerA = {"a) 3 ",
+                "a) 32 ",
+                "a) A Unicorn ",
+                "a) France (Mont Blanc) ",
+                "a) Athens ",
+                "a) Red ",
+                "a) Brazilian ",
+                "a) Russia ",
+                "a) 12 ",
+                "a) Mercury "};
+        String[] answerB = {"\n b) 5 ",
+                "\n b) 8 ",
+                "\n b) A Deer ",
+                "\n b) Russia (Mount Elbrus) ",
+                "\n b) Berlin ",
+                "\n b) Blue ",
+                "\n b) Portuguese ",
+                "\n b) China ",
+                "\n b) 22 ",
+                "\n b) Earth "};
+        String[] answerC = {"\n c) 1 ",
+                "\n c) 16 ",
+                "\n c) A Squirrel ",
+                "\n c) Spain (Mulhacén) ",
+                "\n c) Paris ",
+                "\n c) White ",
+                "\n c) Spanish ",
+                "\n c) Kazakhstan ",
+                "\n c) 11 ",
+                "\n c) Mars "};
+        String[] results = {"a", "c", "a", "b", "b", "a", "b", "c", "c", "a"};
+        int score = 0;
+        int percents = 0;
+
+        for (int i = 0; i < questions.length; i++) {
+            //  System.out.println(questions[i]);
 
 
-        int theSum = 0;
-        theSum = resultOfSum(a, b, c, d, e, f, g, h, i, j);
-        System.out.println("\n" +"Your result is: " + theSum + " %.");
+            for (int j = 0; j < answerA.length; j++) {
 
+            }
+            for (int k = 0; k < answerB.length; k++) {
+
+            }
+            for (int l = 0; l < answerC.length; l++) {
+
+            }
+            System.out.println(questions[i]);
+            System.out.println(answerA[i] + answerB[i] + answerC[i]);
+            System.out.println("Please enter your answer a, b or c: ");
+            String answerFromUser = in.nextLine();
+
+            for (int d = 0; d < results.length; d++) {
+                if (answerFromUser.equals(results[i])) {
+                    score++;
+                    break;
+                }
+            }
+        }
+        percents = score * 100 / results.length;
+        System.out.println("Your result is:  " + percents + "%.");
     }
 
-    public static int resultOfSum(int a, int b, int c, int d, int e, int f, int g, int h, int i, int j) {
-        int result = 0;
-        result = a + b + c + d + e + f + g + h + i + j;
-        return result;
-    }
 }
