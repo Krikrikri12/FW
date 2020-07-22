@@ -1,0 +1,294 @@
+Mislj takaja, vsego test vidajet 10 voprosov, no on sostoit cto test sostoit iz 5 raznix tem, i on vsegda vidajet po 2 randomnix voprosa iz kazdoj temi.
+
+package com.company;
+
+
+public class Main {
+    public static void main(String[] args) {
+        TestPart1 now = new TestPart1();
+        now.setFirstPartPercents();
+        System.out.println("Your result for the first part is:  " + now.getFirstPartPercents() +  "%.");
+
+    }
+}
+
+package com.company;
+
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
+public class TestPart1 {
+    static Scanner in = new Scanner(System.in);
+
+    static int block1part1 = articles();
+    static  int block1part2 = quantifiers();
+    static  int block1part3 = vocabulary();
+    static  int block1part4 = grammar();
+    static  int block1part5 = irregularVerbs();
+
+    static int  percents = (block1part1 +block1part2+block1part3+block1part4 + block1part5 )* 100 / 10;
+
+
+
+    public void setFirstPartPercents() {
+        this.percents = percents;
+    }
+
+    public int getFirstPartPercents() {
+        return percents;
+    }
+
+    public static int articles(){
+        String[] questions1 = {"I need ___ egg for this recipe, but we're out.",
+                "I need ___ milk for this recipe, but we're out. ",
+                "I need ___ potato for this recipe, but we're out. ",
+                "Is that ___ 8 ? I can't read it.",
+                "Is that ___  U ? I can't read it. ",
+                "He is from ___ European country, but I don't know which one. ",
+                "I enjoyed ___ DVD you gave me for my birthday. ",
+                "If I were rich, I would buy ___ apartment in Manhattan. ",
+                "Do you know ___ name of her perfume?",
+                "This school has ___ great teachers. "};
+
+        String[] answers1A = {"/", "/", "/", "/", "/", "/", "/", "/", "/", "/",};
+        String[] answers1B = {"a", "a", "a", "a", "a", "a", "a", "a", "a", "a",};
+        String[] answers1C = {"an", "an", "an", "an", "an", "an", "an", "an", "an", "an",};
+        String[] answers1D = {"the", "the", "the", "the", "the", "the", "the", "the", "the", "the",};
+        String[] results1 = {"c", "a", "b", "c", "b", "b", "d", "c", "d", "a"};
+        int[] intArray = new int[2];
+        intArray[0] = 1;
+        intArray[1] = 2;
+
+        Set<Integer> usedQuestions1 = new HashSet<Integer>();
+        int num = 0;
+        int score1 = 0;
+        for (int j = 0; j < questions1.length; j++) {
+            usedQuestions1.add(j);
+        }
+
+        for (int i = 0; i < 2; i++) {
+
+
+            while (!usedQuestions1.isEmpty()) {
+
+                num = (int) (Math.random() * questions1.length);
+                if (usedQuestions1.contains(num)) {
+                    usedQuestions1.remove(num);
+                    System.out.println( "Question "+ intArray[i] +". " + questions1[num]);
+                    System.out.println("a)" + answers1A[num] + "\n" + "b)" + answers1B[num] + "\n"
+                            + "c)" + answers1C[num] + "\n" + "d)" + answers1D[num]);
+                    break;
+                }
+            }
+            System.out.println("Please enter your answer a, b, c or d: ");
+            String answerFromUser = in.nextLine();
+            for (int d = 0; d < results1.length; d++) {
+                if (answerFromUser.equals(results1[num])) {
+                    score1++;
+                    break;
+
+                }
+            }
+        }
+        return score1;
+
+    }
+    public static int quantifiers(){
+        String[] questions2 = {"Did the teacher give us any homework? - Yes, but not ___.",
+                "Nick never does ___ work. He is a very lazy boy. ",
+                "Could you lend me fifty dollars? - No, I haven't got ___ money. ",
+                "She has had as ___ success as her brother.",
+                "I bought ___ bread, but I didn't buy any butter. I forgot! ",
+                "She is a warm and friendly girl. She has so ___ friends. ",
+                "I've got ___ interesting things to tell you. Let's meet at seven o'clock and I'll tell you everything. ",
+                "How ___ lessons do you have on Mondays? - Only three, mum. ",
+                "Kate was very ___ afraid of ghosts when she was a little girl.",
+                "I didn't see ___ white cats in the garden, only the black one."};
+        String[] answers2A = {"any", "any", "any", "any", "any", "any", "any", "any", "any", "any",};
+        String[] answers2B = {"some", "some", "some", "some", "some", "some", "some", "some", "some", "some",};
+        String[] answers2C = {"much", "much", "much", "much", "much", "much", "much", "much", "much", "much",};
+        String[] answers2D = {"many", "many", "many", "many", "many", "many", "many", "many", "many", "many",};
+        String[] results2 = {"c", "a", "a", "c", "b", "d", "b", "d", "c", "a"};
+        int[] intArray = new int[2];
+        intArray[0] = 3;
+        intArray[1] = 4;
+        Set<Integer> usedQuestions2 = new HashSet<Integer>();
+        int num = 0;
+        int score2 = 0;
+        for (int j = 0; j < questions2.length; j++) {
+            usedQuestions2.add(j);
+        }
+
+        for (int i = 0; i < 2; i++) {
+            while (!usedQuestions2.isEmpty()) {
+                num = (int) (Math.random() * questions2.length);
+                if (usedQuestions2.contains(num)) {
+                    usedQuestions2.remove(num);
+                    System.out.println("Question "+ intArray[i] +". " + questions2[num]);
+                    System.out.println("a)" + answers2A[num] + "\n" + "b)" + answers2B[num] + "\n"
+                            + "c)" + answers2C[num] + "\n" + "d)" + answers2D[num]);
+                    break;
+                }
+            }
+            System.out.println("Please enter your answer a, b, c or d: ");
+            String answerFromUser = in.nextLine();
+            for (int d = 0; d < results2.length; d++) {
+                if (answerFromUser.equals(results2[num])) {
+                    score2++;
+                    break;
+
+                }
+            }
+        }
+        return score2;
+    }
+    public static  int vocabulary(){
+        String[] questions3 = {"What time is it? It's 6.15 - a ___ past six.",
+                "It's the ___ building in the city. ",
+                "You can't smoke here - please ___ your cigarette. ",
+                "Our teacher doesn't ___  us use mobile phones in class.",
+                "It's a good idea, but it's ___ that the boss will agree with you. ",
+                "She doesn't have brothers or sisters - she's a(n) ___ . ",
+                "I ___ swimming every Saturday morning. ",
+                "Argh! This noise is giving me a ___. ",
+                "Let's go to a restaurant for dinner tonight = Let's ___ tonight.",
+                "He studies maths at university. He's a ___ ."};
+        String[] answers3A = {"half", "fattest", "put out", "allow", "improbably", "single child", "do", "headhurt", "eat outside", "studier",};
+        String[] answers3B = {"quarter", "greatest", "put up with", "make", "unprobably", "only child", "make", "headpain", "eat out", "professor",};
+        String[] answers3C = {"fifteen", "highest", "put down", "forbid", "likely", "alone child", "play", "headouch", "eat away", "student",};
+        String[] answers3D = {"fourth", "tallest", "put away", "let", "unlikely", "lonely child", "go", "headache", "eat outwardly", "pupil",};
+        String[] results3 = {"b", "d", "a", "d", "d", "b", "d", "d", "b", "c"};
+        int[] intArray = new int[2];
+        intArray[0] = 5;
+        intArray[1] = 6;
+        Set<Integer> usedQuestions3 = new HashSet<Integer>();
+        int num = 0;
+        int score3 = 0;
+        for (int j = 0; j < questions3.length; j++) {
+            usedQuestions3.add(j);
+        }
+
+        for (int i = 0; i < 2; i++) {
+            while (!usedQuestions3.isEmpty()) {
+                num = (int) (Math.random() * questions3.length);
+                if (usedQuestions3.contains(num)) {
+                    usedQuestions3.remove(num);
+                    System.out.println("Question "+ intArray[i] +". " + questions3[num]);
+                    System.out.println("a)" + answers3A[num] + "\n" + "b)" + answers3B[num] + "\n"
+                            + "c)" + answers3C[num] + "\n" + "d)" + answers3D[num]);
+                    break;
+                }
+            }
+            System.out.println("Please enter your answer a, b, c or d: ");
+            String answerFromUser = in.nextLine();
+            for (int d = 0; d < results3.length; d++) {
+                if (answerFromUser.equals(results3[num])) {
+                    score3++;
+                    break;
+
+                }
+            }
+        }
+        return score3;
+    }
+    public static  int grammar(){
+        String[] questions4 = {"Jenny ___ tired.",
+                "'___ is she?' 'She's my friend from London.' ",
+                "Today is Wednesday. Yesterday it ___ Tuesday. ",
+                "It's Thursday today. Tomorrow it ___ Friday.",
+                "___ lots of animals in the zoo. ",
+                "How many people ___ in your family? ",
+                "'Has Steve got a sister?' 'No, he ___, but he's got 2 brothers.' ",
+                "Where ___ Sarah live? ",
+                "___ to London on the train yesterday?",
+                "Jack ___ English, Spanish and a bit of French."};
+        String[] answers4A = {"be", "Who", "were", "be", "There", "are there", "has", "are", "Did Mary went", "speaks",};
+        String[] answers4B = {"is", "Why", "is", "was", "There is", "is there", "hasn't", "is", "Did Mary go", "speak",};
+        String[] answers4C = {"has", "Which", "be", "will be", "There are", "there are", "haven't", "do", "Mary go", "speaking",};
+        String[] answers4D = {"have", "What", "was", "will", "There aren't", "there", "not", "does", "Mary goes", "is speaking",};
+        String[] results4 = {"b", "a", "d", "c", "c", "a", "b", "d", "b", "a"};
+        int[] intArray = new int[2];
+        intArray[0] = 7;
+        intArray[1] = 8;
+        Set<Integer> usedQuestions3 = new HashSet<Integer>();
+        int num = 0;
+        int score4 = 0;
+        for (int j = 0; j < questions4.length; j++) {
+            usedQuestions3.add(j);
+        }
+
+        for (int i = 0; i < 2; i++) {
+            while (!usedQuestions3.isEmpty()) {
+                num = (int) (Math.random() * questions4.length);
+                if (usedQuestions3.contains(num)) {
+                    usedQuestions3.remove(num);
+                    System.out.println("Question "+ intArray[i] +". " + questions4[num]);
+                    System.out.println("a)" + answers4A[num] + "\n" + "b)" + answers4B[num] + "\n"
+                            + "c)" + answers4C[num] + "\n" + "d)" + answers4D[num]);
+                    break;
+                }
+            }
+            System.out.println("Please enter your answer a, b, c or d: ");
+            String answerFromUser = in.nextLine();
+            for (int d = 0; d < results4.length; d++) {
+                if (answerFromUser.equals(results4[num])) {
+                    score4++;
+                    break;
+
+                }
+            }
+        }
+        return score4;
+    }
+    public static int irregularVerbs(){
+        String[] questions5 = {" Last night she ___ TV until midnight and then she ___ to bed.",
+                "When ___ to London? ",
+                "Our holiday to Portugal ___ really cheap because we ___ the flights on the internet. ",
+                "Do you where Steve is?' 'Yesterday he ___ that he was going to the dentists this morning and he would be in the office at about lunchtime.",
+                "Sorry, could you say that again, please? I ___ ",
+                "How ___ the party at the weekend? Sorry that I ___ but I ___ writing my essay. ",
+                "We went to a great restaurant last night. We ___fantastic wine from Chile and we ___ some strange-looking vegetable. It was all delicious and really cheap.",
+                "George ___ that we had a meeting now because nobody ___ him about it. ",
+                "I ________ down and broke my arm.",
+                "He must have ________ 8 beers last night. "};
+        String[] answers5A = {"saw / go in", "moved John", "was / bought", "says", "not understood", "is / did not come / finished", "did drink /did eat", "did not knew / told to", "fallen", "drank",};
+        String[] answers5B = {"looked / put", "did John move", "were / brought", "told", "didn't understand", "was / couldn't come / had to finish", "drinked /eated", "didn't know / said", "falled", "drunk",};
+        String[] answers5C = {"watched / went", "did John went", "is / caught", "said", "haven't understand", "did it go / could not came / finished to", "drank /ate", "didn't knew / did tell", "felt", "done drunk",};
+        String[] answers5D = {"watch / go", "went John", "was / brought", "telled", "not understand", "was / did not come / finishing", "didn't drink/did eat", "didn't know / told", "fell", "dranked",};
+        String[] results5 = {"c", "b", "a", "b", "b", "b", "c", "b", "d", "b"};
+        int[] intArray = new int[2];
+        intArray[0] = 9;
+        intArray[1] = 10;
+        Set<Integer> usedQuestions3 = new HashSet<Integer>();
+        int num = 0;
+        int score5 = 0;
+        for (int j = 0; j < questions5.length; j++) {
+            usedQuestions3.add(j);
+        }
+
+        for (int i = 0; i < 2; i++) {
+            while (!usedQuestions3.isEmpty()) {
+                num = (int) (Math.random() * questions5.length);
+                if (usedQuestions3.contains(num)) {
+                    usedQuestions3.remove(num);
+                    System.out.println("Question "+ intArray[i] +". " + questions5[num]);
+                    System.out.println("a)" + answers5A[num] + "\n" + "b)" + answers5B[num] + "\n"
+                            + "c)" + answers5C[num] + "\n" + "d)" + answers5D[num]);
+                    break;
+                }
+            }
+            System.out.println("Please enter your answer a, b, c or d: ");
+            String answerFromUser = in.nextLine();
+            for (int d = 0; d < results5.length; d++) {
+                if (answerFromUser.equals(results5[num])) {
+                    score5++;
+                    break;
+
+                }
+            }
+        }
+        return score5;
+    }
+
+}
