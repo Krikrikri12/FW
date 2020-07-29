@@ -1,0 +1,412 @@
+Class Main
+package com.company;
+
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.IOException;
+import java.util.*;
+
+
+public class Main {
+
+
+    static Scanner in = new Scanner(System.in);
+
+    public static void main(String[] args) throws IOException, UnsupportedAudioFileException, LineUnavailableException {
+       TestPart1.testPart1(args);
+      
+
+        TestPart2.part2(args);
+        System.out.println("This is the third part of the test. Listen an audio file and choose the best answer. The record is playing only once. You can fill the answers after the record is finished.");
+
+        System.out.println(" Press enter  to listen to the audio.");
+        String pressEnter = in.nextLine();
+
+        TestPart3.part3(args);
+
+
+    }
+
+}
+Class TestPart1
+package com.company;
+
+import java.util.HashSet;
+
+import java.util.Scanner;
+import java.util.Set;
+
+public class TestPart1 {
+
+    static int ques= 0;
+    static int score = 0;
+
+
+    public static void testPart1(String[] args) {
+        String[] questions1 = {"I need ___ egg for this recipe, but we're out.",
+                "I need ___ milk for this recipe, but we're out. ",
+                "I need ___ potato for this recipe, but we're out. ",
+                "Is that ___ 8 ? I can't read it.",
+                "Is that ___  U ? I can't read it. ",
+                "He is from ___ European country, but I don't know which one. ",
+                "I enjoyed ___ DVD you gave me for my birthday. ",
+                "If I were rich, I would buy ___ apartment in Manhattan. ",
+                "Do you know ___ name of her perfume?",
+                "This school has ___ great teachers. "};
+        String[] answers1A = {"/", "/", "/", "/", "/", "/", "/", "/", "/", "/",};
+        String[] answers1B = {"a", "a", "a", "a", "a", "a", "a", "a", "a", "a",};
+        String[] answers1C = {"an", "an", "an", "an", "an", "an", "an", "an", "an", "an",};
+        String[] answers1D = {"the", "the", "the", "the", "the", "the", "the", "the", "the", "the",};
+        String[] results1 = {"c", "a", "b", "c", "b", "b", "d", "c", "d", "a"};
+
+        String[] questions2 = {"Did the teacher give us any homework? - Yes, but not ___.",
+                "Nick never does ___ work. He is a very lazy boy. ",
+                "Could you lend me fifty dollars? - No, I haven't got ___ money. ",
+                "She has had as ___ success as her brother.",
+                "I bought ___ bread, but I didn't buy any butter. I forgot! ",
+                "She is a warm and friendly girl. She has so ___ friends. ",
+                "I've got ___ interesting things to tell you. Let's meet at seven o'clock and I'll tell you everything. ",
+                "How ___ lessons do you have on Mondays? - Only three, mum. ",
+                "Kate was very ___ afraid of ghosts when she was a little girl.",
+                "I didn't see ___ white cats in the garden, only the black one."};
+        String[] answers2A = {"any", "any", "any", "any", "any", "any", "any", "any", "any", "any",};
+        String[] answers2B = {"some", "some", "some", "some", "some", "some", "some", "some", "some", "some",};
+        String[] answers2C = {"much", "much", "much", "much", "much", "much", "much", "much", "much", "much",};
+        String[] answers2D = {"many", "many", "many", "many", "many", "many", "many", "many", "many", "many",};
+        String[] results2 = {"c", "a", "a", "c", "b", "d", "b", "d", "c", "a"};
+
+        String[] questions3 = {"What time is it? It's 6.15 - a ___ past six.",
+                "It's the ___ building in the city. ",
+                "You can't smoke here - please ___ your cigarette. ",
+                "Our teacher doesn't ___  us use mobile phones in class.",
+                "It's a good idea, but it's ___ that the boss will agree with you. ",
+                "She doesn't have brothers or sisters - she's a(n) ___ . ",
+                "I ___ swimming every Saturday morning. ",
+                "Argh! This noise is giving me a ___. ",
+                "Let's go to a restaurant for dinner tonight = Let's ___ tonight.",
+                "He studies maths at university. He's a ___ ."};
+        String[] answers3A = {"half", "fattest", "put out", "allow", "improbably", "single child", "do", "headhurt", "eat outside", "studier",};
+        String[] answers3B = {"quarter", "greatest", "put up with", "make", "unprobably", "only child", "make", "headpain", "eat out", "professor",};
+        String[] answers3C = {"fifteen", "highest", "put down", "forbid", "likely", "alone child", "play", "headouch", "eat away", "student",};
+        String[] answers3D = {"fourth", "tallest", "put away", "let", "unlikely", "lonely child", "go", "headache", "eat outwardly", "pupil",};
+        String[] results3 = {"b", "d", "a", "d", "d", "b", "d", "d", "b", "c"};
+
+        String[] questions4 = {"Jenny ___ tired.",
+                "'___ is she?' 'She's my friend from London.' ",
+                "Today is Wednesday. Yesterday it ___ Tuesday. ",
+                "It's Thursday today. Tomorrow it ___ Friday.",
+                "___ lots of animals in the zoo. ",
+                "How many people ___ in your family? ",
+                "'Has Steve got a sister?' 'No, he ___, but he's got 2 brothers.' ",
+                "Where ___ Sarah live? ",
+                "___ to London on the train yesterday?",
+                "Jack ___ English, Spanish and a bit of French."};
+        String[] answers4A = {"be", "Who", "were", "be", "There", "are there", "has", "are", "Did Mary went", "speaks",};
+        String[] answers4B = {"is", "Why", "is", "was", "There is", "is there", "hasn't", "is", "Did Mary go", "speak",};
+        String[] answers4C = {"has", "Which", "be", "will be", "There are", "there are", "haven't", "do", "Mary go", "speaking",};
+        String[] answers4D = {"have", "What", "was", "will", "There aren't", "there", "not", "does", "Mary goes", "is speaking",};
+        String[] results4 = {"b", "a", "d", "c", "c", "a", "b", "d", "b", "a"};
+
+        String[] questions5 = {" Last night she ___ TV until midnight and then she ___ to bed.",
+                "When ___ to London? ",
+                "Our holiday to Portugal ___ really cheap because we ___ the flights on the internet. ",
+                "Do you where Steve is?' 'Yesterday he ___ that he was going to the dentists this morning and he would be in the office at about lunchtime.",
+                "Sorry, could you say that again, please? I ___ ",
+                "How ___ the party at the weekend? Sorry that I ___ but I ___ writing my essay. ",
+                "We went to a great restaurant last night. We ___fantastic wine from Chile and we ___ some strange-looking vegetable. It was all delicious and really cheap.",
+                "George ___ that we had a meeting now because nobody ___ him about it. ",
+                "I ___ down and broke my arm.",
+                "He must have ___ 8 beers last night. "};
+        String[] answers5A = {"saw / go in", "moved John", "was / bought", "says", "not understood", "is / did not come / finished", "did drink /did eat", "did not knew / told to", "fallen", "drank",};
+        String[] answers5B = {"looked / put", "did John move", "were / brought", "told", "didn't understand", "was / couldn't come / had to finish", "drinked /eated", "didn't know / said", "falled", "drunk",};
+        String[] answers5C = {"watched / went", "did John went", "is / caught", "said", "haven't understand", "did it go / could not came / finished to", "drank /ate", "didn't knew / did tell", "felt", "done drunk",};
+        String[] answers5D = {"watch / go", "went John", "was / brought", "telled", "not understand", "was / did not come / finishing", "didn't drink/did eat", "didn't know / told", "fell", "dranked",};
+        String[] results5 = {"c", "b", "a", "b", "b", "b", "c", "b", "d", "b"};
+
+
+
+        String first = calculation(questions1, answers1A, answers1B, answers1C, answers1D, results1, score, ques);
+        String second = calculation(questions2, answers2A, answers2B, answers2C, answers2D, results2, score, ques);
+        String third = calculation(questions3, answers3A, answers3B, answers3C, answers3D, results3, score, ques);
+        String fourth = calculation(questions4, answers4A, answers4B, answers4C, answers4D, results4, score, ques);
+        String fives = calculation(questions5, answers5A, answers5B, answers5C, answers5D, results5, score, ques);
+
+        System.out.println("Total score " + score);
+        int percents = (score) * 100 / 10;
+        System.out.println("Your result for the first part is: " + percents + "%.");
+    }
+
+
+    public static String calculation( String[] arrayQuestions, String[] arrayAnswersA, String[] arrayAnswersB, String[] arrayAnswersC, String[] arrayAnswersD, String[] res, int scores, int quess) {
+        Scanner in = new Scanner(System.in);
+        int randLength = 2;
+        int questionLength = 10;
+        int num = 0;
+
+        Set<Integer> remainingQuestions = new HashSet<Integer>();
+
+        for (int j = 0; j < questionLength; j++) {
+            remainingQuestions.add(j);
+
+        }
+
+        for (int i = 0; i < randLength; i++) {
+            if (arrayQuestions[num].equals(arrayQuestions[num])) {
+                ques++;
+            }
+
+          //  System.out.println("Question" + ques);
+            while (!remainingQuestions.isEmpty()) {
+                num = (int) (Math.random() * questionLength);
+                if (remainingQuestions.contains(num)) {
+                    remainingQuestions.remove(num);
+
+                    System.out.println("Question " + ques + ". " + arrayQuestions[num] + "\n a) " + arrayAnswersA[num] + "\n b) " + arrayAnswersB[num] + "\n c) " + arrayAnswersC[num] + "\n d) " + arrayAnswersD[num]);
+                    break;
+                }
+            }
+            System.out.println("Please enter your answer a, b, c or d: ");
+            String answerFromUser = in.nextLine();
+            if (answerFromUser.equals(res[num])) {
+                score++;
+            }
+            System.out.println(res[num]);
+            System.out.println(score);
+
+        }
+        return arrayQuestions[num] + "\n a) " + arrayAnswersA[num] + "\n b) " + arrayAnswersB[num] + "\n c) " + arrayAnswersC[num] + "\n d) " + arrayAnswersD[num] + res[num] + score + ques;
+    }
+
+}
+ClassTestPart2
+package com.company;
+
+
+import java.util.*;
+
+public class TestPart2 {
+
+        public static void part2(String[] args) {
+            int block2 = second();
+            int percent = block2*100/10;
+            System.out.println("your score is " + percent + "%");
+
+        }
+        public static int second() {
+            String[] answer = new String[]{"occupied", "roots", "traffic", "results", "batch", "privilege", "faith", "parcels", "sack", "gap", "ability", "mess", "title", "origins", "blade", "result", "sack", "privileges", "origins", "batch", "gap", "ability", "blades", "mess", "title", "Traffic", "sensation", "roots", "batch", "dip", "access", "grin", "junk", "host", "cruise", "risk", "outline", "view", "score", "bounce", "pause", "toss", "paste", "slump", "chants", "outlined", "cruising", "grinned", "viewed", "chanted", "pasted", "junk", "tossing", "bouncing", "hosts", "dipped", "access", "paused", "risk", "scored", "slumped",};
+            String[] question = new String[]{"The British Empire consists of dominions, colonies, protectorates and other territories ruled or ________ by the UK. 	",
+                    "The sidewalk is slowly cracking because of the _______________ of the big trees growing next to it	",
+                    "I don't like to ride my bicycle in heavy _______________ because it's too dangerous.	",
+                    "She has been quite nervous lately, waiting for the test _______________.	",
+                    "Dave made a wonderful _______________ of German-style beer at his house, and we're going over to taste it tonight.	",
+                    "I believe that it is a _______________ to own an automobile, not a right, so people should use their cars responsibly.	",
+                    "Her _______________ in God helped her through difficult times.	",
+                    "The back of the car was full of Christmas _______________.	",
+                    "We peeled a whole _______________ of potatoes to make potato salad for the company picnic.	",
+                    "There is often somewhat of a _______________ in communication between people of different generations.	",
+                    "She has a natural _______________ in sports, and seems to do well in any sport she tries.	",
+                    "This room is a total _______________; do you think you could help me clean up?	",
+                    "The _______________ of the book is Generation X. 	",
+                    "The _______________ of many of the beliefs of Christianity can be found in a number of religions.	",
+                    "The _______________ of the knife is getting dull, so it is a little difficult to cut through the meat.	",
+                    "Many people living in large cities develop health problems as a _______________ of the air pollution there.	",
+                    "Do you have a piece of string I could use to tie up this _______________?	",
+                    "Our credit card users have certain _______________, such as discounts at certain stores, travel insurance, etc.	",
+                    "He is working at an astrophysical observatory doing research into the _______________ of the universe.	",
+                    "Your mother just baked a big _______________ of cookies to take on our camping trip.	",
+                    "She has a big _______________ between her front teeth.	",
+                    "Australia's largest bird, the emu, has the _______________ to run over 65 kilometres an hour.	",
+                    "We need to sharpen the _______________ of your skates before your next hockey game.	",
+                    "Why do my teenage children always leave such a _______________ in the bathroom?	",
+                    "His official _______________ is Director of Communications.",
+                    "_______________ is backed up for 5 miles due to a bad accident on the highway.",
+                    "After the firecracker went off in his hand, Stu lost all _______________ in his fingers for about 5 minutes.",
+                    "The _______________ of Bonsai trees are constantly trimmed to keep the trees from growing very big.",
+                    "You can buy a big _______________ of carrots at the farmer's market for only £3.",
+                    "We took a _______________ in the lake after laying in the sun for a while.",
+                    "He couldn't send in his homework by e-mail because he didn't have _______________ to a computer.",
+                    "Sheila broke into a wide _______________ when she saw her fiancé coming up the aisle towards her.",
+                    "This stereo system is just _______________; if you want something good, you've got to pay for it.",
+                    "The Grand Canyon plays _______________ to over four million tourists every year.",
+                    "They went on a two-week _______________ to Alaska for their honeymoon.",
+                    "Too much fat in one's diet poses a serious _______________ of heart disease.",
+                    "Your teacher will give you an _______________ of the course in the first week of classes.",
+                    "We stopped at the top of the mountain to admire the _______________ of the forest.",
+                    "The final _______________ for the game was 4 to 3 for the visiting team.",
+                    "There's not much _______________ left in this basketball. We need to put some more air into it.",
+                    "The musicians began by tuning their instruments, and then, after a short _______________, the symphony began.",
+                    "The order of speaking was decided by a coin _______________.",
+                    "Sophie used a _______________ made of avocado on her face to cleanse her pores.",
+                    "The goaltender is in a bit of a _______________, and needs to have a good game to get his confidence back.",
+                    "The _______________ of the Roman Church can all be divided into those with biblical and those with nonbiblical texts.",
+                    "The marketing executive _______________ his new sales strategy at the weekly staff meeting.",
+                    "When I was 18 years old, my friends and I used to enjoy _______________ around in a friend's car every weekend.",
+                    "The children _______________ with pleasure when I gave them the candy.",
+                    "One's values should be _______________ in the context of one's culture.",
+                    "The dancers _______________ in low voices as they danced around the stage.",
+                    "She _______________ pictures of her favourite movie stars in a little album.",
+                    "Our DVD player is broken, and it's cheaper to buy a new one than to repair it, so I'm just going to _______________ it.",
+                    "Paco was _______________ the ball in the air for his dog to catch in its mouth.",
+                    "The children were _______________ a rubber ball against the side of the house.",
+                    "Victoria _______________ an annual beer-tasting festival which is very popular.",
+                    "The child _______________ his toes into the ocean to see if the water was cold.",
+                    "We can't get _______________ to the building without the permission of the owner.",
+                    "The lecturer _______________ to drink a glass of water, and then continued with his speech.",
+                    "You _______________ failing the course if you don't do a better job on your next presentation",
+                    "The winning goal was _______________ with only 5 seconds remaining in the game.",
+                    "The old man _______________ in his chair as he fell asleep.",
+            };
+
+            HashMap<Integer, String> questionOriginal = new HashMap<>();
+            for (int i = 0; i < question.length; i++){
+                questionOriginal.put(i, question[i]);
+            } // array to Hashmap for the questions
+            HashMap<Integer, String> answerOriginal = new HashMap<>();
+            for (int i = 0; i < answer.length; i++){
+                answerOriginal.put(i, answer[i]);
+            } // array to Hashmap for the answers
+
+            int score = 0;
+            int q = 10;
+
+            HashMap<Integer, String> quest = new HashMap<>();
+            HashMap<Integer, String> ans = new HashMap<>();
+
+            for (int i = 0; i<q; i++) {
+                Random QG = new Random();
+                int rand = QG.nextInt(questionOriginal.size()-5);
+                if (questionOriginal.containsKey(rand) && answerOriginal.containsKey(rand)) {
+                    quest.put(i, questionOriginal.get(rand));
+                    ans.put(i, answerOriginal.get(rand));
+                    questionOriginal.remove(rand);
+                    answerOriginal.remove(rand);
+                }
+                else q++;
+            }  // random question, answer generator
+
+
+            System.out.println("This is the second part of the test. Write the correct missing word in each sentence form the words given below.(The words are given in correct tense)");
+            System.out.println(ans.get(3) + ", " + ans.get(1) + ", " + ans.get(5) + ", " + ans.get(8) +", " + ans.get(9) +", " + ans.get(7) +", " + ans.get(2) +", " + ans.get(4) +", " + ans.get(0) +", " + ans.get(6));
+            for (int i = 0; i < 10; i++){
+                System.out.println((i+1) + ". " + quest.get(i));
+            }
+
+
+            for (int i = 0; i < 10; i++){ // has ten answer inputs
+                int num = i+1;
+                System.out.print("question " + num + " ");
+                Scanner sc = new Scanner(System.in);
+                String anss = sc.nextLine();
+                while(anss.isEmpty()){
+                    Scanner scss = new Scanner(System.in);
+                    anss = scss.nextLine();
+                }
+                if (anss.equalsIgnoreCase(ans.get(i))){
+                    score++;
+                }
+            }
+            quest.clear();
+            ans.clear();
+            for (int i = 0; i < answer.length; i++){
+                answerOriginal.put(i, answer[i]);
+            }
+            for (int i = 0; i < question.length; i++) {
+                questionOriginal.put(i, question[i]);
+            }
+            return score;
+
+}
+}
+Class TestPart3
+package com.company;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.swing.*;
+import java.io.File;
+import java.util.Scanner;
+
+public class TestPart3 {
+    static Scanner in = new Scanner(System.in);
+    static int score = 0;
+    public static void part3(String[] args) {
+        String[] questions1 = {"Where was the first place he went?.",
+                "What does Dave say about the dancers? ",
+                "What is the Sambodromo? ",
+                "What does Dave say about the nightlife?",
+                "What is Janet going to do?"};
+        String[] answers1A = {"To the beach", "They were tireless", "A parade", "It is an interesting mix ", "Take some photos",};
+        String[] answers1B = {"To the hotel", "They were tiring", "A street", "He did not go out much", "Look at some photos",};
+        String[] answers1C = {"To the Carnival", "They were tired", "A dance", "The nightclubs were great", "Get some photos developed",};
+        String[] results = {"b", "a", "a", "c", "b",};
+        int quest = 0;
+
+
+        int first = method(questions1, answers1A, answers1B,answers1C, quest );
+
+        String filepath = "ListeningB2Sample1.wav";
+        TestPart3 musicObject = new TestPart3();
+        musicObject.playMusic(filepath);
+
+        int answerFromUser = answers(results, score);
+        System.out.println("Total score " + score);
+        int percents = (score) * 100 / 5;
+        System.out.println("Your result for the first part is: " + percents + "%.");
+    }
+    public static int method(String[] arr, String []answA, String []answB, String []answC, int questionNum){
+        for (int i=0; i< arr.length; i++){
+            if (arr[i].equals(arr[i])) {
+                questionNum++;
+            }
+            System.out.println("Questions " +questionNum+ ". " + arr[i] + "\n a) " +answA[i] + "\n b) " +answB[i] + "\n c) " +answC[i]);
+        }
+
+        return 1;
+    }
+
+    void playMusic(String musicLocation){
+
+
+        try{
+            File musicPath = new File(musicLocation);
+            if(musicPath.exists()){
+                AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioInput);
+                clip.start();
+
+                JOptionPane.showMessageDialog(null, "Press OK to stop playing");
+
+            }else{
+                System.out.println("Can't find file");
+            }
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+
+        }
+
+    }
+    public static int answers(String[] res, int scores) {
+
+        int questionNumberForAnswer = 0;
+
+        for (int j = 0; j < res.length; j++) {
+            if (res[j].equals(res[j])) {
+                questionNumberForAnswer++;
+            }
+
+            System.out.println("Please enter your answer for the question " + questionNumberForAnswer + ": a, b, or c:");
+
+            String answerFromUser = in.nextLine();
+            if (answerFromUser.equals(res[j])) {
+                score++;
+            }
+            System.out.println(score);
+        }
+
+        return 1;
+    }
+}
+
